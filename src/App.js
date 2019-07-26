@@ -1,12 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
+import './style.css';
 
-
-function App() {
-  return (
+const App = () => (
+  
     <div className="App">
-      <h1> Iaeew seus Pull Towww</h1>
+      <Header/>
     </div>
-  );
-}
+  
+);
 
 export default App;
