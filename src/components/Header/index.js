@@ -1,8 +1,9 @@
 //Imports
 import React from 'react';
-import './styles.css';
+import './header-styles.css';
 
 /* Stateless component, criando component com apenas funções
+const Variavel = () =>
 */
 const Header = () => 
 <header id="main-header">JSHunt</header>
