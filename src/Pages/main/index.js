@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import api from '../../services/api';
+import './main-style.css';
 
 export default class Main extends Component{
  /* React não trabalha exatamente com variáveis
@@ -12,7 +13,7 @@ Trabalha com STATES, estados são como variáveis.
 /* 
 ComponentDidMount: função que inicia no 
 ciclo de vida component, métodos que executam 
-automaticamente assim que o component é 
+automaticamente aassim que o component é 
 Exibido                                */
 componentDidMount (){
     this.loadProducts();
@@ -27,17 +28,32 @@ loadProducts = async () => {
 };
 
 /*Método RENDER "depende" de alguns STATES, ele possui
-ouvinte de states automatico, ouvindo alterações e re-
-executando.
+ouvinte de states automatico, ouvindo alterações do
+STATE e reexecutando o método RENDER, mostrando em tela.
  */
     render (){
+    // Busca variável no this.state
+        const {products} = this.state;
+
+
         return (
             <div className="product-list">
-                {this.state.products.map(product =>(
-                        <h2 key={product._id}>{product.title} </h2>
-                    )
-                )}
+                 {products.map(product =>(
+                        <article key={product._id}>
+                            <strong> {product.title} </strong>
+                            <p> {product.description} </p>
+                            <a href="">Veja</a>
+                                                    </article>
+                    
+                ))}
             </div>
         )
     }
 }
+
+/*
+MAP: função para percorrer Vetor (eu acho)
+React exige KEY quando uso do MAP, foi-se usado
+ID do próprio produto.
+
+*/
