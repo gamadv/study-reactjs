@@ -43,10 +43,16 @@ STATE e reexecutando o método RENDER, mostrando em tela.
                             <strong> {product.title} </strong>
                             <p> {product.description} </p>
                             <a href="">Veja</a>
-                                                    </article>
+                        </article>
                     
                 ))}
+                <div className="actions"> 
+                    <button>Voltar</button>
+                    <button>Avançar</button>
+                </div>
             </div>
+            
+            
         )
     }
 }
