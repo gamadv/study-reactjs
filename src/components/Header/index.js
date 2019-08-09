@@ -6,7 +6,7 @@ import './header-styles.css';
 const Variavel = () =>
 */
 const Header = () => 
-<header id="main-header">JSHunt</header>
+<header id="main-header">FOFEX</header>
 
 
 export default Header;

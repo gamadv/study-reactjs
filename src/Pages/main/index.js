@@ -1,3 +1,9 @@
+/*
+Import api para buscar dados /
+funções do backend onde esteja 
+hospedado
+*/
+
 import React, {Component} from 'react';
 import api from '../../services/api';
 import './main-style.css';
@@ -8,7 +14,9 @@ Trabalha com STATES, estados são como variáveis.
 - Estado é Sempre um Objeto; State = {OBJETO:}
 */  
     state = {
-        products: []
+        products: [],
+        productInfo: {},
+        page: 1,
     };
 /* 
 ComponentDidMount: função que inicia no 
@@ -20,20 +28,38 @@ componentDidMount (){
 }
 
 
-loadProducts = async () => {
-    const response = await api.get ('/products');
+loadProducts = async (page = 1) => {
+    const response = await api.get (`/products?page=${page}`);
 
-    //Setando Valor no State Products
-    this.setState({ products: response.data.docs});
+    const {docs, ...productInfo} = response.data;
+
+    //Setando Valor nos States
+    this.setState({ products: docs, productInfo, page });
 };
+
+
+prevPage = () => {
+    const {page, productInfo} = this.state;
+    if (page === 1) return;
+    const pageNumber = page - 1;
+    this.loadProducts(pageNumber);
+};
+
+nextPage = () => {
+    const {page, productInfo} = this.state;
+    if (page === productInfo.pages) return;
+    const pageNumber = page + 1;
+    this.loadProducts(pageNumber);
+};
+
 
 /*Método RENDER "depende" de alguns STATES, ele possui
 ouvinte de states automatico, ouvindo alterações do
 STATE e reexecutando o método RENDER, mostrando em tela.
  */
     render (){
-    // Busca variável no this.state
-        const {products} = this.state;
+    // Busca variáveis no this.state
+        const {products, page, productInfo} = this.state;
 
 
         return (
@@ -47,8 +73,9 @@ STATE e reexecutando o método RENDER, mostrando em tela.
                     
                 ))}
                 <div className="actions"> 
-                    <button>Voltar</button>
-                    <button>Avançar</button>
+                    <button disabled={page === 1} onClick = {this.prevPage}>Voltar</button>
+                    <button disabled={page === productInfo.pages}onClick = 
+                    {this.nextPage}>Avançar</button>
                 </div>
             </div>
             
