@@ -2,7 +2,9 @@
 import React from 'react';
 import Header from './components/Header';
 import './general-style.css';
-import Main from './Pages/main';
+import Routes from './routes';
+
+
 
 
 // Stateless Component
@@ -10,7 +12,7 @@ const App = () => (
   
     <div className="App">
       <Header/>
-      <Main/>
+      <Routes/>
     </div>
   
 );

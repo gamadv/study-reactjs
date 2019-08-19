@@ -7,11 +7,14 @@ hospedado
 import React, {Component} from 'react';
 import api from '../../services/api';
 import './main-style.css';
+import {Link}  from 'react-router-dom';
 
 export default class Main extends Component{
  /* React não trabalha exatamente com variáveis
 Trabalha com STATES, estados são como variáveis.
 - Estado é Sempre um Objeto; State = {OBJETO:}
+- Armazena temporariamente os dados provenientes
+do backend e os utilizam quando chamados.
 */  
     state = {
         products: [],
@@ -24,6 +27,8 @@ ciclo de vida component, métodos que executam
 automaticamente aassim que o component é 
 Exibido                                */
 componentDidMount (){
+// ===> Arrow Function, ao iniciar o DidMount, executa
+// Esta função que foi criada abaixo
     this.loadProducts();
 }
 
@@ -34,6 +39,7 @@ loadProducts = async (page = 1) => {
     const {docs, ...productInfo} = response.data;
 
     //Setando Valor nos States
+    // ==> Propriedades para serem atualizdas no State
     this.setState({ products: docs, productInfo, page });
 };
 
@@ -68,7 +74,7 @@ STATE e reexecutando o método RENDER, mostrando em tela.
                         <article key={product._id}>
                             <strong> {product.title} </strong>
                             <p> {product.description} </p>
-                            <a href="">Veja</a>
+                            <Link to = {`/products/${product._id}`} >Veja </Link>
                         </article>
                     
                 ))}
