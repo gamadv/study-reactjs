@@ -1,0 +1,161 @@
+WK6:Dropbox:		inProgress
+WK7:Instagram:		inProgress 
+WK8:Tinder	: 		inProgress
+
+
+Install.config
+Nodejs: Via Package Manager: MacOS (Homebrew), Windows (Chocolatey).
+Chocolatey: Via CMD ou PowerShell
+Instalar Node: cinst nodejs.install 
+Atualizar Node: choco upgrade nodejs
+NPM (yarn): Choco install yarn
+Git(github):
+
+Custom: (Optional)
+Visual Studio Theme: Dracula Oficial
+VS Snippets:  Rockeseat ReactJS, React Native
+VS Tema para arquivos e pastas: Material icon Theme: 
+Symbols and Ligatures: Firacode: link no github (json: “editor.font: “fira code” / font ligatures: True)
+
+
+Backend
+ 	Criação de pasta, depois dentro dela, no terminal: yarn init -y
+	Depois de criado o package.json: yarn add express
+	Criado pasta node_modules e yarn.lock
+
+Heroku
+ 	Criação de novo server: New  →  Create New App
+
+	
+#############Tips:
+
+Package.json: Controle de dependências
+
+Redux: Quando utilizar? Quando precisar que alguma informação esteja disponível em mais componentes da aplicação ou quando a mesma precisa sofrer efeitos colaterais. Organiza as informações. 
+
+Método nunca chama outro.
+
+Async store (só aceita strings) 
+
+Next define a próxima ação do middleware
+
+LOGIN -> JWT
+
+Sequelize -> Mongoose para SQL 
+
+Primeiros passos em PaaS com Heroku:  
+https://www.devmedia.com.br/primeiros-passos-em-paas-com-heroku/29465
+
+*Middleware; Funções que recebe as requisições e modifica as respostas
+
+GET/POST/PUT/DELETE
+
+ReactNative UI/UX: https://blog.rocketseat.com.br/react-native-dicas-ux/
+
+Yarn Install || NPM Install : Corrige dependências
+
+
+#Commands: 
+Abrir Comando: CTRL + SHIFT + P 
+Mover codigo trecho de código: Alt + Seta
+Abrir caminhos: CTRL + Space
+
+#############################Dicionário.
+
+
+Express: (lib) Microframework que facilita requisições e respostas, lida com a parte de rotas e views (formas de visualização).							yarn add express
+Nodemon: (lib) Restart automático no server após alterações. 	yarn add nodemon -D  (-D indica que vai ser uma depend. De dev). Deve-se criar scripts no package.json para iniciar os processos. Possui dependência no package json.
+MongoDB: (banco) NO-SQL. Não será instalado, será utilizado um serviço para base de dados mongo na nuuvem: MongoDB Atlas
+Mongoose: (lib) ORM (object relational mapping).(encapsula lógica do banco no código). Forma de abstração do banco de dados utilizando codigo js para lidar com os dados: yarn add mongoose. 
+Mongoose-Paginate: (Plugin)(módulo) criar paginação do mongo na app
+ yarn add mongoose-paginate. 
+Insomnia: Ferramenta para teste de requisição.
+Multer: (lib) Intermediador para permitir upload na aplicação, forma do controller acessar informações:     
+										yarn add multer
+Socketio: (lib) Para realtime : 						yarn add socket.io 
+Cors: (mod) Para definir acesso a aplicação de um domínio diferente: yarn add cors 
+Docker: (app_container) 
+Robot.3T: (app_gerenciador_mongo)
+RequireDIR: (lib) Faz o papel do require automatico:		yarn add require-dir
+Create-react-app:(tools) Conjunto de ferramentas necessárias para execução do React JS e todos os seus recursos necessários.   					yarn add create-react-app
+Axios: (lib) Para acessar informações de uma API-Rest / endereço externo yarn add axios
+React-Router-Dom: (lib) Para navegação de paginas.	yarn add react-router-dom
+
+#################################Node:
+Utilização de API Rest: Flexibilidade com Frontend e backend separados, tendo um único backend para diferentes aplicações: Web e Mobile.
+
+Tips:
+Lock, administrador de dependencias para não repetir. 
+Utilização do Nodemon. Yarn run dev
+Instalando MongoDB com Docker.
+Ferramentas utilizadas: 
+Node (utilizando gerenciador de pacotes, chocolatey(windows), Yarn. 
+Express (npm (yarn install express)): micro framework para lidar com rotas e views (formas de visualizações).
+
+Passo 1. 
+Yarn init -y (Criação do package json)
+Criando o 1o arquivo: server.js || index.js
+Define constantes para incluir o express ao código.
+Estancía uma variavel para executar o express.
+Define um ouvinte de porta, um listen 
+
+Passo 2. Docker
+Instalando MongoDB via Docker:	docker pull mongo
+Configurando imagem mongo: 	docker run --name mongodb(nome) -p (porta) 27017:27017 -d (definindo qual imagem usar) mongo
+Listar imagens em execução: 	docker ps
+Para voltar a executar: 		docker ps -a ----------> docker start nomedaimagem
+Listar conexão no ROBO3T (Visualizador de banco do MongoDB)
+
+Passo 3. Mongoose / Rotas
+Instalando mongoose:		yarn add mongoose
+Configurando rotas / controllers, cada um com suas propriedades
+Criando models and controllers da aplicação
+
+Passo 4. Usando Insomnia para testar rotas.
+
+Passo 5. Término do CRUD, instalação do mongoose-paginate para paginação do banco.
+Instalando mongoose-paginate (yarn add mongoose-paginate)
+
+Passo 6. Instalando cors para acesso externos.
+
+
+
+
+
+
+##########################################React:
+Faz o que javaScript consegue fazer de uma forma organizada, melhor manipulação com o DOM, bom para single page applications (SPA). Trabalha com componentização. Retorna valores JSON.
+	Recursos: Node, yarn, create-react-app
+	*** Caso seja um clone em outra máquina, executar: npm install || yarn install
+	Ao usar JSX sempre importar o React.
+
+Estruturas de Pastas:
+Public: Arquivos que serão acessados pelo cliente.
+
+Começando:
+Passo 1: Instalando o create-react-app e executando em alguma pasta: 	yarn create-react-app nomedapasta
+Após instalação, no terminal: npm start || 					yarn start
+
+Componentização:
+Render obrigatoriamente retorna um elemento JSX
+Componente pedaço isolado de lógica. 
+Criar pasta para componentes: /src/components
+Dentro criou-se pasta Header, com arquivo de index.js, junto com seu estilo de página CSS.
+Parte de link: API → Front End, foi-se instalado o axios
+Criou-se pasta Services, boa prática para add arquivos referentes a qualquer tipo de acesso externo.
+Criou-se pasta Pages, com subpasta main e arquivo index, para gerenciamento das páginas
+
+
+
+
+#############################React Native: 
+https://docs.rocketseat.dev/ambiente-react-native/android/windows
+	Ferramenta que permite utilizar JS para criar apps mobile, que produz interface nativa (OS  || Android) sem webview, sendo uma ponte entre Java || objective C e o JS, utilizando o JS core. 
+
+Instalando React-Native e suas dependencias:
+choco install -y nodejs.install python2 jdk8 (caso não tenha o node)
+ 
+Após instalação do JDK e do Python2  prosseguir para instalação do SDK: 
+Command line tools only -> link para windows. Após feito o Download, extraia o conteúdo do pacote para a pasta criada no passo anterior.
+Adicionar variáveis de ambiente e alterar PATH
+To CMD: C:\Android\Sdk\tools\bin\sdkmanager  "platform-tools" "platforms;android-27" 
